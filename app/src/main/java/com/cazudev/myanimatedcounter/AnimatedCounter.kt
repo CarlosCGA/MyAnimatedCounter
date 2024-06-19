@@ -1,5 +1,6 @@
 package com.cazudev.myanimatedcounter
 
+import android.util.Log
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
@@ -42,11 +43,23 @@ fun AnimatedCounter(
                 countString[i]
             }
 
+            val isIncrement = count > oldCount
+
             AnimatedContent(
                 targetState = char,
                 label = "animated counter",
                 transitionSpec = {
-                    slideInVertically { it } togetherWith slideOutVertically { -it }
+                    slideInVertically {
+                        if(isIncrement)
+                            -it
+                        else
+                            it
+                    } togetherWith slideOutVertically {
+                        if(isIncrement)
+                            it
+                        else
+                            -it
+                    }
                 }
             ) {
                 Text(
