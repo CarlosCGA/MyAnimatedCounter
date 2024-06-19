@@ -19,7 +19,7 @@ import androidx.compose.ui.text.TextStyle
 @Composable
 fun AnimatedCounter(
     count: Int,
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     style: TextStyle = MaterialTheme.typography.bodyMedium
 ) {
     var oldCount by remember {
