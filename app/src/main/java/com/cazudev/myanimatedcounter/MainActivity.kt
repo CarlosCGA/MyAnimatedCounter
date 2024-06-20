@@ -59,7 +59,13 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                     }
-                    Spacer(modifier = Modifier.size(8.dp))
+                    
+                    Spacer(modifier = Modifier.size(16.dp))
+                    
+                    MySmoothTickSlider()
+
+                    Spacer(modifier = Modifier.size(16.dp))
+
                     MySlider()
                 }
             }
